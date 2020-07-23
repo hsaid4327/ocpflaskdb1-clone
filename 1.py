@@ -12,7 +12,7 @@ from flask import Flask, redirect, url_for
 dbserv='uswsql2.azvms.com,51005'
 dbname='mfgnetdev'
 dbuser='mfgnetuser'
-dbpass=''
+dbpass='mfgnetuser'
 conn = pyodbc.connect('DSN=TNSDB;SERVER='+ dbserv +';DATABASE='+ dbname +';UID='+ dbuser +';PWD='+ dbpass)
 site_code = 'fxc'
 sql_site="select site_name from sites where site_code = '" +  site_code + "'"
@@ -43,4 +43,4 @@ def admin():
     
     )
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0", port=8080)
