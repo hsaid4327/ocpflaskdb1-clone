@@ -4,9 +4,7 @@ ADD requirements.txt .
 ADD 1.py .
 
 USER root
-RUN curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo && \
-    curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo && \
-    curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
+RUN curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo 
 RUN ACCEPT_EULA=Y yum  install msodbcsql17 \
                   && yum clean all
 
