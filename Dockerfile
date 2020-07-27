@@ -7,9 +7,7 @@ USER root
 RUN curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo && \
     curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo && \
     curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
-RUN ACCEPT_EULA=Y yum -y --setopt=tsflags=nodocs install msodbcsql17 \
-                  #&& yum -y --setopt=tsflags=nodocs install unixODBC \
-                  #&& yum install -y --setopt=tsflags=nodocs unixODBC-devel \
+RUN ACCEPT_EULA=Y yum -y --setopt=tsflags=nodocs install msodbcsql17
                   && yum clean all
 
 COPY *.ini /etc
