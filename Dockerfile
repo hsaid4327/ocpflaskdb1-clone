@@ -5,9 +5,9 @@ ADD 1.py .
 
 USER root
 RUN curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo 
-RUN ACCEPT_EULA=Y yum  install e2fsprogs \
-                  && yum install msodbcsql17 \
-                  && yum clean all
+RUN yum remove unixODBC-utf16 unixODBC-utf16-devel \
+    && ACCEPT_EULA=Y yum install msodbcsql17 \
+    && yum clean all
 
 COPY *.ini /etc
 USER 1001
