@@ -1,5 +1,6 @@
 # debian based image
 FROM python:3.6-slim
+RUN cat /etc/*-release
 WORKDIR /app
 ADD requirements.txt .
 ADD 1.py .
