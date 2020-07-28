@@ -5,7 +5,7 @@ ADD 1.py .
 
 # install FreeTDS and dependencies
 USER root
-RUN yum update \
+RUN ACCEPT_EULA=Y yum update \
  && ACCEPT_EULA=Y yum install unixodbc -y \
  && ACCEPT_EULA=Y yum install unixodbc-dev -y \
  && ACCEPT_EULA=Y yum install freetds-dev -y \
