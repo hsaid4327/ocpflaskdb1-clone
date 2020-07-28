@@ -1,4 +1,5 @@
-FROM python:3
+# debian based image
+FROM python:3.6-slim
 WORKDIR /app
 ADD requirements.txt .
 ADD 1.py .
