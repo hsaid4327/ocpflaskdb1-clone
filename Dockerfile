@@ -5,7 +5,6 @@ ADD requirements.txt .
 ADD 1.py .
 ADD setup.sh .
 
-# install FreeTDS and dependencies
 USER root
 RUN bash ./setup.sh
 
