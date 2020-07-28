@@ -6,3 +6,4 @@ six
 pymemcache
 cachelib
 requests
+pandas
