@@ -1,3 +1,8 @@
+autoenv
 flask
-pandas
+flask_restful
 pyodbc
+six
+pymemcache
+cachelib
+requests
