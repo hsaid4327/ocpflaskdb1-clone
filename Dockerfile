@@ -4,6 +4,7 @@ ADD requirements.txt .
 ADD 1.py .
 
 # install FreeTDS and dependencies
+USER root
 RUN yum update \
  && yum install unixodbc -y \
  && yum install unixodbc-dev -y \
@@ -17,5 +18,6 @@ Description = FreeTDS Driver\n\
 Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so\n\
 Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so" >> /etc/odbcinst.ini
 #Pip command without proxy setting
+USER 1001
 RUN pip install -r requirements.txt
 CMD ["python","-i","1.py"]
