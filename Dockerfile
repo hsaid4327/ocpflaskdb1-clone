@@ -1,14 +1,21 @@
-FROM python:3.6
-WORKDIR /opt/app-root
+FROM python:3
+WORKDIR /app
 ADD requirements.txt .
 ADD 1.py .
 
-USER root
-RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo \
-    && ACCEPT_EULA=Y yum  -y --setopt=tsflags=nodocs install msodbcsql \
-    && yum clean all
-
-COPY *.ini /etc
-USER 1001
+# install FreeTDS and dependencies
+RUN apt-get update \
+ && apt-get install unixodbc -y \
+ && apt-get install unixodbc-dev -y \
+ && apt-get install freetds-dev -y \
+ && apt-get install freetds-bin -y \
+ && apt-get install tdsodbc -y \
+ && apt-get install --reinstall build-essential -y
+# populate "ocbcinst.ini" as this is where ODBC driver config sits
+RUN echo "[FreeTDS]\n\
+Description = FreeTDS Driver\n\
+Driver = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so\n\
+Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so" >> /etc/odbcinst.ini
+#Pip command without proxy setting
 RUN pip install -r requirements.txt
 CMD ["python","-i","1.py"]
