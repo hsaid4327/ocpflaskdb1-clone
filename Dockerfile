@@ -7,7 +7,7 @@ ADD 1.py .
 USER root
 RUN yum update -y \
  && yum install unixODBC -y \
- && yum install unixODBC-dev -y \
+ && yum install unixODBC-devel -y \
  && yum install freetds-dev -y \
  && yum install freetds-bin -y \
  && yum install tdsodbc -y \
