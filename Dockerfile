@@ -5,13 +5,13 @@ ADD 1.py .
 
 # install FreeTDS and dependencies
 USER root
-RUN ACCEPT_EULA=Y yum update \
- && ACCEPT_EULA=Y yum install unixodbc -y \
- && ACCEPT_EULA=Y yum install unixodbc-dev -y \
- && ACCEPT_EULA=Y yum install freetds-dev -y \
- && ACCEPT_EULA=Y yum install freetds-bin -y \
- && ACCEPT_EULA=Y yum install tdsodbc -y \
- && ACCEPT_EULA=Y yum install --reinstall build-essential -y
+RUN yum update -y \
+ && yum install unixodbc -y \
+ && yum install unixodbc-dev -y \
+ && yum install freetds-dev -y \
+ && yum install freetds-bin -y \
+ && yum install tdsodbc -y \
+ && yum install --reinstall build-essential -y
 # populate "ocbcinst.ini" as this is where ODBC driver config sits
 RUN echo "[FreeTDS]\n\
 Description = FreeTDS Driver\n\
