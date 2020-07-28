@@ -3,7 +3,7 @@ WORKDIR /opt/app-root
 ADD requirements.txt .
 ADD 1.py .
 
-USER root
+#USER root
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo \
     && ACCEPT_EULA=Y yum $DISABLES -y --setopt=tsflags=nodocs install msodbcsql \
     && yum clean all
