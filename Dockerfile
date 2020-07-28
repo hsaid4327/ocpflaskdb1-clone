@@ -6,8 +6,8 @@ ADD 1.py .
 # install FreeTDS and dependencies
 USER root
 RUN yum update -y \
- && yum install unixodbc -y \
- && yum install unixodbc-dev -y \
+ && yum install unixODBC -y \
+ && yum install unixODBC-dev -y \
  && yum install freetds-dev -y \
  && yum install freetds-bin -y \
  && yum install tdsodbc -y \
