@@ -1,5 +1,5 @@
 # debian based image
-FROM python:3.6-slim
+FROM docker.io/python:3.8-slim
 RUN cat /etc/*-release
 WORKDIR /app
 ADD requirements.txt .
