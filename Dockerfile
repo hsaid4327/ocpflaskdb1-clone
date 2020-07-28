@@ -5,8 +5,8 @@ ADD 1.py .
 
 USER root
 RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo \
-    && ACCEPT_EULA=Y yum  -y --setopt=tsflags=nodocs install msodbcsql \
     && yum install e2fsprogs-libs
+    && ACCEPT_EULA=Y yum  -y --setopt=tsflags=nodocs install msodbcsql \
     && yum clean all
 
 COPY *.ini /etc
