@@ -8,8 +8,8 @@ USER root
 RUN yum update -y \
  && yum install unixODBC -y \
  && yum install unixODBC-devel -y \
- && yum install FreeTDS-dev -y \
- && yum install FreeTDS-bin -y \
+ && yum install freetds -y \
+ && yum install freetds-bin -y \
  && yum install tdsodbc -y \
  && yum install --reinstall build-essential -y
 # populate "ocbcinst.ini" as this is where ODBC driver config sits
