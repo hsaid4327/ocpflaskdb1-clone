@@ -13,7 +13,8 @@ dbserv='uswsql2.azvms.com,51005'
 dbname='mfgnetdev'
 dbuser='mfgnetuser'
 dbpass='mfgnetuser'
-conn = pyodbc.connect('DSN=TNSDB;SERVER='+ dbserv +';DATABASE='+ dbname +';UID='+ dbuser +';PWD='+ dbpass)
+#conn = pyodbc.connect('DSN=TNSDB;SERVER='+ dbserv +';DATABASE='+ dbname +';UID='+ dbuser +';PWD='+ dbpass)
+conn = pyodbc.connect('DSN=TNSDB;SERVER=uswsql2.azvms.com,51005;DATABASE=mfgnetdev;UID=mfgnetuser;PWD=mfgnetuser')
 site_code = 'fxc'
 sql_site="select site_name from sites where site_code = '" +  site_code + "'"
 
