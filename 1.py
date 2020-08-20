@@ -24,9 +24,7 @@ app = Flask(__name__)
 def site():
     return f"Hello {site_code}!"
 
-@app.route("/webhook/")
-def site():
-    return f"Hello webhook is working!"
+
 
 @app.route("/fxc/")
 def fxc():
